@@ -1,4 +1,4 @@
-<template data-theme="voron">
+<template>
   <form class="max-w-50 max-w-xs mx-auto">
     <legend>Voron Plate Generator</legend>
     <label class="form-control w-full max-w">

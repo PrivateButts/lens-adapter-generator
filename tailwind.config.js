@@ -12,9 +12,17 @@ export default {
   },
   daisyui: {
     themes: [
+      'light',
+      'dark',
       {
         voron: {
           primary: '#cc000e',
+          'base-100': '#2c2f33'
+        }
+      },
+      {
+        journeymaker: {
+          primary: '#0097a7',
           'base-100': '#2c2f33'
         }
       }
