@@ -10,7 +10,7 @@
   <STLViewer
     v-if="!generating && generatedSTL"
     :stlFile="stlDataUrl"
-    :modelOptions="{ rotationx: -1.5708, color: '#cc000e' }"
+    :modelOptions="{ rotationx: -1.5708, ...props.modelOptions }"
     class="aspect-w-16 aspect-h-9"
   ></STLViewer>
   <div class="px-5 mt-5">
@@ -31,12 +31,13 @@ interface SCADResource {
   url: string
 }
 
-const props = defineProps<{
-  scadFile: SCADResource
-  outputName: string
-  scadResourceUrls?: SCADResource[]
-  scadVariables?: Record<string, any>
-}>()
+const props = defineProps({
+  scadFile: { type: Object as () => SCADResource, required: true },
+  outputName: { type: String, required: true },
+  scadResources: { type: Array as () => SCADResource[] },
+  scadVariables: { type: Object },
+  modelOptions: { type: Object, default: () => ({}) }
+})
 
 const scadInstance = ref<OpenSCAD>()
 const resourceDatas = ref<Record<string, string | ArrayBufferView>>({})
@@ -46,8 +47,8 @@ const generatedSTL = ref<Blob>()
 
 onMounted(async () => {
   fetchResource(props.scadFile)
-  if (props.scadResourceUrls) {
-    await Promise.all(props.scadResourceUrls.map(fetchResource))
+  if (props.scadResources) {
+    await Promise.all(props.scadResources.map(fetchResource))
   }
 })
 
@@ -62,14 +63,14 @@ const fetchResource = async (resource: SCADResource) => {
 
 const prepFS = async () => {
   if (!scadInstance.value) return
-  if (Object.keys(resourceDatas.value).length < (props.scadResourceUrls?.length || 0) + 1) return
+  if (Object.keys(resourceDatas.value).length < (props.scadResources?.length || 0) + 1) return
 
   console.debug('prepping FS')
 
   scadInstance.value.FS.mkdir('/fonts')
   scadInstance.value.FS.writeFile(props.scadFile.name, resourceDatas.value[props.scadFile.name])
-  if (props.scadResourceUrls) {
-    props.scadResourceUrls.forEach((resource) => {
+  if (props.scadResources) {
+    props.scadResources.forEach((resource) => {
       if (resourceDatas.value[resource.name]) {
         scadInstance.value!.FS.writeFile(resource.name, resourceDatas.value[resource.name])
       }

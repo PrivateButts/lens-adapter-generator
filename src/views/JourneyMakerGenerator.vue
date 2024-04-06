@@ -11,7 +11,7 @@
       <input
         type="text"
         placeholder="JM.XXXX"
-        v-model="options.serial"
+        v-model="scadOptions.serial"
         class="input input-bordered w-full max-w"
         required
       />
@@ -24,14 +24,15 @@
     <div class="form-control">
       <label class="label cursor-pointer">
         <span class="label-text">Include Logo:</span>
-        <input type="checkbox" v-model="options.logo" class="checkbox checkbox-primary" />
+        <input type="checkbox" v-model="scadOptions.logo" class="checkbox checkbox-primary" />
       </label>
     </div>
     <GeneratorForm
       :scad-file="scadFile"
       :output-name="outputName"
-      :scad-resource-urls="resources"
-      :scad-variables="options"
+      :scad-resources="resources"
+      :scad-variables="scadOptions"
+      :model-options="modelOptions"
     />
   </form>
 </template>
@@ -49,13 +50,16 @@ const resources = [
   { url: 'scad/journeymaker/plate.stl', name: 'plate.stl' },
   { url: 'scad/journeymaker/Play.ttf', name: 'fonts/Play.ttf' }
 ]
-const options = reactive({
+const scadOptions = reactive({
   font1: 'Play',
   serial: route.query.serial || 'JM.XXXX',
   logo: true
 })
+const modelOptions = reactive({
+  color: '#0097a7'
+})
 const outputName = computed(
-  () => `JourneyMaker_${!options.logo ? 'No_' : ''}Logo_Plate_${options.serial}.stl`
+  () => `JourneyMaker_${!scadOptions.logo ? 'No_' : ''}Logo_Plate_${scadOptions.serial}.stl`
 )
 </script>
 
