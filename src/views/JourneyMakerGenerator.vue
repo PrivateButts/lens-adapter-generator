@@ -1,6 +1,9 @@
 <template>
   <form class="max-w-50 max-w-xs mx-auto" @submit.prevent>
-    <legend>JourneyMaker Plate Generator</legend>
+    <legend class="text-lg">JourneyMaker Plate Generator</legend>
+    <p class="my-1 italic text-sm">
+      Hey, this is a prototype plate that I'm working on, it's not official in any way.
+    </p>
     <label class="form-control w-full max-w">
       <div class="label">
         <span class="label-text">Serial Number:</span>

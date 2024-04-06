@@ -1,6 +1,6 @@
 <template>
   <form class="max-w-50 max-w-xs mx-auto" @submit.prevent>
-    <legend>Voron Plate Generator</legend>
+    <legend class="text-lg">Voron Plate Generator</legend>
     <label class="form-control w-full max-w">
       <div class="label">
         <span class="label-text">Serial Number:</span>
