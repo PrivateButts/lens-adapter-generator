@@ -1,5 +1,5 @@
 <template>
-  <form class="max-w-50 max-w-xs mx-auto">
+  <form class="max-w-50 max-w-xs mx-auto" @submit.prevent>
     <legend>JourneyMaker Plate Generator</legend>
     <label class="form-control w-full max-w">
       <div class="label">
