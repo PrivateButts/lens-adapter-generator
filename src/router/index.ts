@@ -24,7 +24,7 @@ const router = createRouter({
       name: 'journeymaker',
       meta: {
         title: 'JourneyMaker Serial Plate Generator',
-        nav: 'JourneyMaker',
+        // nav: 'JourneyMaker',
         icon: defineAsyncComponent(() => import('@/assets/journeymaker.svg')),
         theme: 'journeymaker'
       },
