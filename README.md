@@ -4,6 +4,8 @@ This static site generates serial plates for Voron printers using OpenSCAD-WASM 
 
 Play with it online at [serial-generator.privatebutts.dev/voron](https://serial-generator.privatebutts.dev/voron)
 
+
+
 # Development
 
 ## Recommended IDE Setup
