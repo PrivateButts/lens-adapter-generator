@@ -48,9 +48,19 @@ const generatedSTL = ref<Blob>()
 onMounted(async () => {
   fetchResource(props.scadFile)
   if (props.scadResources) {
+    console.log('fetching resources', props.scadResources)
     await Promise.all(props.scadResources.map(fetchResource))
   }
 })
+
+import { watch } from 'vue'
+
+watch(() => props.scadResources, async (newResources) => {
+  if (newResources) {
+    console.log('scadResources changed, fetching new resources', newResources)
+    await Promise.all(props.scadResources.map(fetchResource))
+  }
+}, { deep: true })
 
 const fetchResource = async (resource: SCADResource) => {
   const response = await fetch(resource.url)
@@ -67,9 +77,10 @@ const prepFS = async () => {
 
   console.debug('prepping FS')
 
-  scadInstance.value.FS.mkdir('/fonts')
   scadInstance.value.FS.writeFile(props.scadFile.name, resourceDatas.value[props.scadFile.name])
   if (props.scadResources) {
+    scadInstance.value!.FS.mkdir('male')
+    scadInstance.value!.FS.mkdir('female')
     props.scadResources.forEach((resource) => {
       if (resourceDatas.value[resource.name]) {
         scadInstance.value!.FS.writeFile(resource.name, resourceDatas.value[resource.name])
@@ -111,7 +122,9 @@ const generate = async () => {
     for (const [key, value] of Object.entries(props.scadVariables)) {
       if (typeof value === 'boolean') {
         cmd.push('-D', `${key}=${value}`)
-      } else {
+      } if (typeof value === 'number') {
+        cmd.push('-D', `${key}=${value}`)
+      }else {
         cmd.push('-D', `${key}="${value}"`)
       }
     }

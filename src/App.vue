@@ -1,14 +1,14 @@
 <template>
   <header class="navbar">
-    <div class="navbar-start text-xl"><h1 class="pl-3">Serial Plate Generator</h1></div>
+    <div class="navbar-start text-xl"><h1 class="pl-3">Lens Adapter Generator</h1></div>
     <div class="navbar-end pr-3">
       <ul class="menu menu-horizontal bg-base-200 rounded-box">
-        <li v-for="link in navLinks" :key="link.path">
+        <!-- <li v-for="link in navLinks" :key="link.path">
           <RouterLink :to="link.path" active-class="active">
             <component :is="link.meta.icon" class="inline-block w-5 h-5" />
             {{ link.meta.nav }}
           </RouterLink>
-        </li>
+        </li> -->
       </ul>
     </div>
   </header>
@@ -29,7 +29,7 @@
     <aside class="ms-auto">
       <p>
         <a
-          href="https://github.com/PrivateButts/serial-plate-generator/issues"
+          href="https://github.com/PrivateButts/lens-adapter-generator/issues"
           target="_blank"
           class="link link-primary"
           >Report an issue</a
@@ -37,7 +37,7 @@
         <a
           class="link link-primary"
           target="_blank"
-          href="https://github.com/PrivateButts/serial-plate-generator"
+          href="https://github.com/PrivateButts/lens-adapter-generator"
           >View source</a
         >
       </p>
