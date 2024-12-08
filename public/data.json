@@ -1,29 +1,29 @@
 {
     "version": "0.0.1",
-    "male": {
-        "Sony": [
-            {
-                "name": "E Mount",
-                "file": "sony/e.stl",
-                "thickness": 2.4,
-                "diameter": 41.5,
-                "flange": 18,
-                "attribution_link": "https://www.printables.com/model/143762-sony-efe-lens-mount",
-                "attribution_text": "From @thenickdude on Printables"
-            }
-        ]
-    },
-    "female": {
-        "Canon": [
-            {
-                "name": "EF Mount",
-                "file": "canon/ef.stl",
-                "thickness": 6.308,
-                "flange": 44,
-                "diameter": 54.8,
-                "attribution_link": "https://www.printables.com/model/762674-canon-ef-lens-to-sony-e-mount-body",
-                "attribution_text": "Modified from @colinhalebrow_495435 on Printables"
-            }
-        ]
-    }
+    "male": [
+        {
+            "group": "Sony",
+            "name": "E Mount",
+            "file": "sony/e.stl",
+            "thickness": 2.4,
+            "inner_diameter": 41.5,
+            "outer_diameter": 61,
+            "flange": 18,
+            "attribution_link": "https://www.printables.com/model/143762-sony-efe-lens-mount",
+            "attribution_text": "From @thenickdude on Printables"
+        }
+    ],
+    "female": [
+        {
+            "group": "Canon",
+            "name": "EF Mount",
+            "file": "canon/ef.stl",
+            "thickness": 6.308,
+            "flange": 44,
+            "inner_diameter": 52.8,
+            "outer_diameter": 63.6,
+            "attribution_link": "https://www.printables.com/model/762674-canon-ef-lens-to-sony-e-mount-body",
+            "attribution_text": "Modified from @colinhalebrow_495435 on Printables"
+        }
+    ]
 }

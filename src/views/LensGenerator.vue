@@ -2,10 +2,11 @@
   <form class="max-w-50 max-w-xs mx-auto" @submit.prevent>
     <legend class="text-lg">Lens Adapter Generator</legend>
 
-    <label class="form-control" v-if="data">
+    <label class="form-control" v-if="data && data.male">
       <label class="label cursor-pointer">Male Mount</label>
       <select class="select select-bordered" v-model="maleMount">
-        <optgroup v-for="(mounts, brand) in data.male" :key="brand" :label="brand">
+        <optgroup v-for="(mounts, brand) in Object.groupBy(data.male, ({ group }) => group)" :key="brand"
+          :label="brand">
           <option v-for="mount in mounts" :key="`male/${brand}/${mount.name}`" :value="mount">
             {{ mount.name }}
           </option>
@@ -23,10 +24,11 @@
         </span>
       </div>
     </label>
-    <div class="form-control">
+    <label class="form-control" v-if="data && data.female">
       <label class="label cursor-pointer">Female Mount</label>
       <select class="select select-bordered" v-model="femaleMount">
-        <optgroup v-for="(mounts, brand) in data.female" :key="brand" :label="brand">
+        <optgroup v-for="(mounts, brand) in Object.groupBy(data.female, ({ group }) => group)" :key="brand"
+          :label="brand">
           <option v-for="mount in mounts" :key="`female/${brand}/${mount.name}`" :value="mount">
             {{ mount.name }}
           </option>
@@ -43,7 +45,7 @@
           {{ femaleMount.attribution_text }}
         </span>
       </div>
-    </div>
+    </label>
     <GeneratorForm :scad-file="scadFile" :output-name="outputName" :scad-resources="resources" :scad-variables="options"
       :model-options="modelOptions" />
     <!-- <p class="mt-3 italic text-sm">
@@ -95,8 +97,10 @@ const resources = computed(() => {
 })
 const options = computed(() => ({
   cone_height: cone_height.value,
-  cone_male_diameter: maleMount.value?.diameter || 10,
-  cone_female_diameter: femaleMount.value?.diameter || 10,
+  cone_male_inner_diameter: maleMount.value?.inner_diameter || 10,
+  cone_male_outer_diameter: maleMount.value?.outer_diameter || 10,
+  cone_female_inner_diameter: femaleMount.value?.inner_diameter || 10,
+  cone_female_outer_diameter: femaleMount.value?.outer_diameter || 10,
   wall_thickness: 6,
   segment_count: 100,
   male_mount: maleMountName.value,
@@ -106,7 +110,10 @@ const modelOptions = reactive({
   color: '#cc000e'
 })
 const outputName = computed(
-  () => `Voron_${!options.logo ? 'No_' : ''}Logo_Plate_${options.serial}.stl`
+  () => {
+    if (!maleMount.value || !femaleMount.value) return ''
+    return `${femaleMount.value.group} ${femaleMount.value.name} to ${maleMount.value.group} ${maleMount.value.name} Adapter.stl`
+  }
 )
 
 onMounted(async () => {
