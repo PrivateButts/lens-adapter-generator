@@ -46,6 +46,17 @@
             "outer_diameter": 59,
             "attribution_link": "https://www.printables.com/model/139996-adapter-for-exa-exakta-to-sony-fe-mount",
             "attribution_text": "From @behrendtkai_126038 on Printables"
+        },
+        {
+            "group": "Nikon",
+            "name": "Nikonos Mount",
+            "file": "nikon/nikonos20mm.stl",
+            "thickness": 8,
+            "flange": 28,
+            "inner_diameter": 40,
+            "outer_diameter": 54,
+            "attribution_link": "https://www.thingiverse.com/thing:6597498",
+            "attribution_text": "From snapppy on Thingiverse"
         }
     ]
 }
