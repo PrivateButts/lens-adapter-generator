@@ -11,6 +11,17 @@
             "flange": 18,
             "attribution_link": "https://www.printables.com/model/143762-sony-efe-lens-mount",
             "attribution_text": "From @thenickdude on Printables"
+        },
+        {
+            "group": "Sony",
+            "name": "FE Mount",
+            "file": "sony/fe.stl",
+            "thickness": 4.722,
+            "inner_diameter": 40,
+            "outer_diameter": 58.8,
+            "flange": 18,
+            "attribution_link": "https://www.printables.com/model/139996-adapter-for-exa-exakta-to-sony-fe-mount",
+            "attribution_text": "From @behrendtkai_126038 on Printables"
         }
     ],
     "female": [
@@ -24,6 +35,17 @@
             "outer_diameter": 63.6,
             "attribution_link": "https://www.printables.com/model/762674-canon-ef-lens-to-sony-e-mount-body",
             "attribution_text": "Modified from @colinhalebrow_495435 on Printables"
+        },
+        {
+            "group": "Exakta",
+            "name": "Exakta Mount",
+            "file": "exakta/exakta.stl",
+            "thickness": 11.456,
+            "flange": 44.7,
+            "inner_diameter": 38,
+            "outer_diameter": 59,
+            "attribution_link": "https://www.printables.com/model/139996-adapter-for-exa-exakta-to-sony-fe-mount",
+            "attribution_text": "From @behrendtkai_126038 on Printables"
         }
     ]
 }

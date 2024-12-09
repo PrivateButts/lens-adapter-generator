@@ -101,7 +101,6 @@ const options = computed(() => ({
   cone_male_outer_diameter: maleMount.value?.outer_diameter || 10,
   cone_female_inner_diameter: femaleMount.value?.inner_diameter || 10,
   cone_female_outer_diameter: femaleMount.value?.outer_diameter || 10,
-  wall_thickness: 6,
   segment_count: 100,
   male_mount: maleMountName.value,
   female_mount: femaleMountName.value,
