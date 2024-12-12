@@ -105,14 +105,20 @@
         </table>
       </div>
     </div>
+    <div class="mt-4">
+      <h1 class="text-xl">What is this?</h1>
+      <p>This tool takes premade models of camera mounts and stitches them together via a dynamically generated hollow
+        cone
+        shape. The resultant models should work as a quick and dirty adapter, but are not as optimized as an adapter
+        designed from scratch by a human. Keep in mind that none of these models are guaranteed to work or have been
+        tested.
+        If you do print one out, and it does work, lemme know here and I'll mark it as tested whenever I release an
+        update.
+        If you have a mount that you'd like to contribute, submit a request here. Otherwise, if one of these adapters
+        helps
+        you, be sure to support the creators who's mounts were used to make it.</p>
+    </div>
   </form>
-  <h1>What is this?</h1>
-  <p>This tool takes premade models of camera mounts and stitches them together via a dynamically generated hollow cone
-    shape. The resultant models should work as a quick and dirty adapter, but are not as optimized as an adapter
-    designed from scratch by a human. Keep in mind that none of these models are guaranteed to work or have been tested.
-    If you do print one out, and it does work, lemme know here and I'll mark it as tested whenever I release an update.
-    If you have a mount that you'd like to contribute, submit a request here. Otherwise, if one of these adapters helps
-    you, be sure to support the creators who's mounts were used to make it.</p>
 </template>
 
 <script setup lang="ts">
