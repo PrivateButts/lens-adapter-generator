@@ -1,6 +1,10 @@
-# serial-plate-generator
+# Printer Serial Plate Generator
 
-This template should help get you started developing with Vue 3 in Vite.
+This static site generates serial plates for Voron printers using OpenSCAD-WASM entirely client side. It doesn't require any additional backend services to generate the STLs, and can be extended to support any OpenSCAD-based parametric file.
+
+Play with it online at [serial-generator.privatebutts.dev/voron](https://serial-generator.privatebutts.dev/voron)
+
+# Development
 
 ## Recommended IDE Setup
 
@@ -9,10 +13,6 @@ This template should help get you started developing with Vue 3 in Vite.
 ## Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
