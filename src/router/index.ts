@@ -15,6 +15,14 @@ const router = createRouter({
         title: 'Voron Serial Plate Generator'
       },
       component: () => import('../views/VoronGenerator.vue')
+    },
+    {
+      path: '/jm',
+      name: 'journeymaker',
+      meta: {
+        title: 'JourneyMaker Serial Plate Generator'
+      },
+      component: () => import('../views/JourneyMakerGenerator.vue')
     }
   ]
 })
