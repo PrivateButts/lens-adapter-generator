@@ -5,6 +5,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
+declare global {
+  interface Window {
+    StlViewer: any
+  }
+}
+
 const props = defineProps({
   stlFile: {
     type: String,

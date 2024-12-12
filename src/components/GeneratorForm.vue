@@ -22,13 +22,9 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-// import useOpenSCAD, { type OpenSCAD } from '@/lib/openscad-wasm/openscad'
-// OPTIONAL: add fonts to the FS
-// import { addFonts } from '@/lib/openscad-wasm/openscad.fonts'
-// OPTIONAL: add MCAD liibrary to the FS
-// import { addMCAD } from '@/lib/openscad-wasm/openscad.mcad'
 import useOpenSCAD from '@/lib/alt-wasm/openscad'
 import STLViewer from '@/components/STLViewer.vue'
+import type { OpenSCAD } from '@/lib/alt-wasm/openscad'
 
 interface SCADResource {
   name: string
@@ -132,8 +128,6 @@ const downloadSTL = () => {
   aElement.click()
   URL.revokeObjectURL(href)
   aElement.remove()
-
-  scadInstance.value.FS.unlink('/output.stl')
 }
 
 const stlDataUrl = computed(() => {
