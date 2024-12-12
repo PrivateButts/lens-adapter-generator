@@ -1,13 +1,17 @@
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/voron">Voron</RouterLink>
-      </nav>
+  <header class="navbar">
+    <div class="navbar-start text-xl"><h1 class="pl-3">Serial Plate Generator</h1></div>
+    <div class="navbar-end pr-3">
+      <ul class="menu menu-horizontal bg-base-200 rounded-box">
+        <li v-for="link in navLinks" :key="link.path">
+          <RouterLink :to="link.path" active-class="active">
+            <component :is="link.meta.icon" class="inline-block w-5 h-5" />
+            {{ link.meta.nav }}
+          </RouterLink>
+        </li>
+      </ul>
     </div>
-  </header> -->
+  </header>
 
   <div class="container mx-auto mt-5">
     <RouterView />
@@ -15,7 +19,14 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { computed } from 'vue'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const navLinks = computed(() => {
+  return router.getRoutes().filter((route) => route.meta.nav)
+})
 </script>
 
 <style scoped>

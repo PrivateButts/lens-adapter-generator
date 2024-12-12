@@ -1,3 +1,4 @@
+import { defineAsyncComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -12,18 +13,22 @@ const router = createRouter({
       name: 'voron',
       meta: {
         title: 'Voron Serial Plate Generator',
+        nav: 'Voron',
+        icon: defineAsyncComponent(() => import('@/assets/voron.svg')),
         theme: 'voron'
       },
-      component: () => import('../views/VoronGenerator.vue')
+      component: () => import('@/views/VoronGenerator.vue')
     },
     {
       path: '/jm',
       name: 'journeymaker',
       meta: {
         title: 'JourneyMaker Serial Plate Generator',
+        nav: 'JourneyMaker',
+        icon: defineAsyncComponent(() => import('@/assets/journeymaker.svg')),
         theme: 'journeymaker'
       },
-      component: () => import('../views/JourneyMakerGenerator.vue')
+      component: () => import('@/views/JourneyMakerGenerator.vue')
     }
   ]
 })
