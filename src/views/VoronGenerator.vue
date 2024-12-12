@@ -27,8 +27,9 @@
     <GeneratorForm
       :scad-file="scadFile"
       :output-name="outputName"
-      :scad-resource-urls="resources"
+      :scad-resources="resources"
       :scad-variables="options"
+      :model-options="modelOptions"
     />
   </form>
 </template>
@@ -50,6 +51,9 @@ const options = reactive({
   font1: 'Play',
   serial: route.query.serial || 'VX.XXXX',
   logo: true
+})
+const modelOptions = reactive({
+  color: '#cc000e'
 })
 const outputName = computed(
   () => `Voron_${!options.logo ? 'No_' : ''}Logo_Plate_${options.serial}.stl`
