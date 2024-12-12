@@ -13,9 +13,36 @@
     </div>
   </header>
 
-  <div class="container mx-auto mt-5">
+  <main class="container mx-auto mt-5">
     <RouterView />
-  </div>
+  </main>
+
+  <footer class="footer p-5 mt-auto">
+    <aside>
+      <p>
+        Made with love by
+        <a class="link link-primary" target="_blank" href="https://privatebutts.dev"
+          >Private Butts</a
+        >.
+      </p>
+    </aside>
+    <aside class="ms-auto">
+      <p>
+        <a
+          href="https://github.com/PrivateButts/serial-plate-generator/issues"
+          target="_blank"
+          class="link link-primary"
+          >Report an issue</a
+        >&nbsp;|&nbsp;
+        <a
+          class="link link-primary"
+          target="_blank"
+          href="https://github.com/PrivateButts/serial-plate-generator"
+          >View source</a
+        >
+      </p>
+    </aside>
+  </footer>
 </template>
 
 <script setup lang="ts">
