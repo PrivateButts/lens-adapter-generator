@@ -6,15 +6,15 @@ labels: 'mount request'
 assignees: ''
 ---
 
-**What's the name of the mount?**
+# What's the name of the mount?
 
 Provide both the name of the mount and some cameras/lenses that use that system.
 
-**Do you have models for the mount?**
+# Do you have models for the mount?
 
 Provide either a link to an existing one or upload them to the issue. Models must be STL format, and without issue. All models must be oriented with the taking side pointing up, as if the camera was lying on it's back. All models must be centered horizontally. Vertically, male models should have it's top edge flush with the XY plane (below 0), female models should have it's bottom edge flush with the XY plane (above 0). _Submitting a model that doesn't meet these criteria will lower it's chances of being added_
 
-**Fill out the table below the best you can**
+# Fill out the table below the best you can
 
 The example provided is for a Sony E Mount. All numbers are in millimeters. _Duplicate this table for each model you're attaching._
 
@@ -29,7 +29,7 @@ The example provided is for a Sony E Mount. All numbers are in millimeters. _Dup
 | `attribution_link` | If the model requires attribution in it's license, link to where you found it here | https://www.printables.com/model/143762-sony-efe-lens-mount |       |
 | `attribution_text` | If the model requires attribution, create a blurb to provide proper attribution    | From @thenickdude on Printables                             |       |
 
-**Implementation Checklist**
+# Implementation Checklist
 
 This section is for maintainers:
 
