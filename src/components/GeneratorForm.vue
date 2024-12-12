@@ -108,10 +108,15 @@ const generate = async () => {
   let cmd = [`/${props.scadFile.name}`]
   if (props.scadVariables) {
     for (const [key, value] of Object.entries(props.scadVariables)) {
-      cmd.push('-D', `${key}="${value}"`)
+      if (typeof value === 'boolean') {
+        cmd.push('-D', `${key}=${value}`)
+      } else {
+        cmd.push('-D', `${key}="${value}"`)
+      }
     }
   }
   cmd.push('-o', 'output.stl')
+  console.debug('Calling openscad with', cmd)
   scadInstance.value.callMain(cmd)
 
   // Read the data from cube.stl

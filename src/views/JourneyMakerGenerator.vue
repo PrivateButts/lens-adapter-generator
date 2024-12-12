@@ -43,7 +43,7 @@ const route = useRoute()
 const scadFile = { url: 'scad/journeymaker/journeymaker.scad', name: 'plate.scad' }
 const resources = [
   { url: 'scad/journeymaker/logoplate.stl', name: 'logoplate.stl' },
-  { url: 'scad/journeymaker/plate.stl', name: 'Serial_Plate_journeymaker_NoLogo.stl' },
+  { url: 'scad/journeymaker/plate.stl', name: 'plate.stl' },
   { url: 'scad/journeymaker/Play.ttf', name: 'fonts/Play.ttf' }
 ]
 const options = reactive({
