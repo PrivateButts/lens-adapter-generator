@@ -6,18 +6,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      redirect: '/voron'
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: '/voron',
+      name: 'voron',
+      meta: {
+        title: 'Voron Serial Plate Generator'
+      },
       component: () => import('../views/VoronGenerator.vue')
     }
   ]
+})
+
+router.afterEach((to, from, failure) => {
+  if (to.meta.title) {
+    document.title = to.meta.title as string
+  }
 })
 
 export default router

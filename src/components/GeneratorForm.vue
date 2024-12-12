@@ -1,18 +1,34 @@
 <template>
-  <div>
-    <button @click="generateBtnHandler" :disabled="generating">Generate</button>
+  <div class="px-5 mt-2 mb-5">
+    <button @click="generateBtnHandler" :disabled="generating" class="btn btn-block btn-primary">
+      Generate
+    </button>
   </div>
-  <div v-if="generating">Generating...</div>
+  <div v-if="generating" class="aspect-w-16 aspect-h-9">
+    <div class="w-full">Generating... This tab may freeze for a couple seconds.</div>
+  </div>
+  <STLViewer
+    v-if="!generating && generatedSTL"
+    :stlFile="stlDataUrl"
+    :modelOptions="{ rotationx: -1.5708, color: '#cc000e' }"
+    class="aspect-w-16 aspect-h-9"
+  ></STLViewer>
+  <div class="px-5 mt-5">
+    <button @click="downloadSTL" :disabled="!generatedSTL" class="btn btn-block btn-primary">
+      Download STL
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 // import useOpenSCAD, { type OpenSCAD } from '@/lib/openscad-wasm/openscad'
 // OPTIONAL: add fonts to the FS
 // import { addFonts } from '@/lib/openscad-wasm/openscad.fonts'
 // OPTIONAL: add MCAD liibrary to the FS
 // import { addMCAD } from '@/lib/openscad-wasm/openscad.mcad'
 import useOpenSCAD from '@/lib/alt-wasm/openscad'
+import STLViewer from '@/components/STLViewer.vue'
 
 interface SCADResource {
   name: string
@@ -30,6 +46,7 @@ const scadInstance = ref<OpenSCAD>()
 const resourceDatas = ref<Record<string, string | ArrayBufferView>>({})
 const generating = ref(false)
 const prepped = ref(false)
+const generatedSTL = ref<Blob>()
 
 onMounted(async () => {
   fetchResource(props.scadFile)
@@ -102,11 +119,14 @@ const generate = async () => {
   scadInstance.value.callMain(cmd)
 
   // Read the data from cube.stl
-  const output = scadInstance.value.FS.readFile('/output.stl')
+  generatedSTL.value = new Blob([scadInstance.value.FS.readFile('/output.stl')])
+}
 
+const downloadSTL = () => {
+  if (!generatedSTL.value) return
   const aElement = document.createElement('a')
   aElement.setAttribute('download', props.outputName)
-  const href = URL.createObjectURL(new Blob([output]))
+  const href = stlDataUrl.value
   aElement.href = href
   aElement.setAttribute('target', '_blank')
   aElement.click()
@@ -115,4 +135,11 @@ const generate = async () => {
 
   scadInstance.value.FS.unlink('/output.stl')
 }
+
+const stlDataUrl = computed(() => {
+  if (generatedSTL.value) {
+    return URL.createObjectURL(generatedSTL.value)
+  }
+  return ''
+})
 </script>
