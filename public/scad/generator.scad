@@ -47,8 +47,12 @@ module lens_adapter()
         // Position the male lens mount
         translate([ 0, 0, 0 ]) male_lens_mount();
 
-        hollow_cone(cone_height, cone_female_inner_diameter, cone_female_outer_diameter, cone_male_inner_diameter,
-                    cone_male_outer_diameter);
+        if (cone_height > 0)
+        {
+            // Create the hollow cone
+            hollow_cone(cone_height, cone_female_inner_diameter, cone_female_outer_diameter, cone_male_inner_diameter,
+                        cone_male_outer_diameter);
+        }
 
         // Position the female lens mount
         translate([ 0, 0, cone_height ]) female_lens_mount();

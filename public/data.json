@@ -10,7 +10,8 @@
             "outer_diameter": 61,
             "flange": 18,
             "attribution_link": "https://www.printables.com/model/143762-sony-efe-lens-mount",
-            "attribution_text": "From @thenickdude on Printables"
+            "attribution_text": "From @thenickdude on Printables",
+            "license": "CC0-1.0"
         },
         {
             "group": "Sony",
@@ -21,7 +22,20 @@
             "outer_diameter": 58.8,
             "flange": 18,
             "attribution_link": "https://www.printables.com/model/139996-adapter-for-exa-exakta-to-sony-fe-mount",
-            "attribution_text": "From @behrendtkai_126038 on Printables"
+            "attribution_text": "From @behrendtkai_126038 on Printables",
+            "license": "CC-BY-NC-SA-4.0"
+        },
+        {
+            "group": "Fujifilm",
+            "name": "X Mount",
+            "file": "fujifilm/x.stl",
+            "thickness": 5,
+            "inner_diameter": 44,
+            "outer_diameter": 54,
+            "flange": 17.7,
+            "attribution_link": "https://www.thingiverse.com/thing:6597498",
+            "attribution_text": "From snapppy on Thingiverse",
+            "license": "CC-BY-SA-3.0"
         }
     ],
     "female": [
@@ -34,7 +48,8 @@
             "inner_diameter": 52.8,
             "outer_diameter": 63.6,
             "attribution_link": "https://www.printables.com/model/762674-canon-ef-lens-to-sony-e-mount-body",
-            "attribution_text": "Modified from @colinhalebrow_495435 on Printables"
+            "attribution_text": "Modified from @colinhalebrow_495435 on Printables",
+            "license": "CC-BY-NC-4.0"
         },
         {
             "group": "Exakta",
@@ -45,7 +60,8 @@
             "inner_diameter": 38,
             "outer_diameter": 59,
             "attribution_link": "https://www.printables.com/model/139996-adapter-for-exa-exakta-to-sony-fe-mount",
-            "attribution_text": "From @behrendtkai_126038 on Printables"
+            "attribution_text": "From @behrendtkai_126038 on Printables",
+            "license": "CC-BY-NC-SA-4.0"
         },
         {
             "group": "Nikon",
@@ -56,7 +72,8 @@
             "inner_diameter": 40,
             "outer_diameter": 54,
             "attribution_link": "https://www.thingiverse.com/thing:6597498",
-            "attribution_text": "From snapppy on Thingiverse"
+            "attribution_text": "From snapppy on Thingiverse",
+            "license": "CC-BY-SA-3.0"
         }
     ]
 }
