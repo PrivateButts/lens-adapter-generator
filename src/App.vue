@@ -1,6 +1,8 @@
 <template>
   <header class="navbar">
-    <div class="navbar-start text-xl"><h1 class="pl-3">Lens Adapter Generator</h1></div>
+    <div class="navbar-start text-xl">
+      <h1 class="pl-3">Lens Adapter Generator</h1>
+    </div>
     <div class="navbar-end pr-3">
       <ul class="menu menu-horizontal bg-base-200 rounded-box">
         <!-- <li v-for="link in navLinks" :key="link.path">
@@ -17,29 +19,19 @@
     <RouterView />
   </main>
 
-  <footer class="footer p-5 mt-auto">
-    <aside>
+  <footer class="footer p-4 mt-auto items-center sm:grid-flow-col">
+    <aside class="grid-flow-col items-center place-self-center">
       <p>
         Made with love by
-        <a class="link link-primary" target="_blank" href="https://privatebutts.dev"
-          >Private Butts</a
-        >.
+        <a class="link link-primary" target="_blank" href="https://privatebutts.dev">Private Butts</a>.
       </p>
     </aside>
-    <aside class="ms-auto">
+    <aside class="grid-flow-col gap-4 place-self-center">
       <p>
-        <a
-          href="https://github.com/PrivateButts/lens-adapter-generator/issues"
-          target="_blank"
-          class="link link-primary"
-          >Report an issue</a
-        >&nbsp;|&nbsp;
-        <a
-          class="link link-primary"
-          target="_blank"
-          href="https://github.com/PrivateButts/lens-adapter-generator"
-          >View source</a
-        >
+        <a href="https://github.com/PrivateButts/lens-adapter-generator/issues" target="_blank"
+          class="link link-primary">Report an issue</a>&nbsp;|&nbsp;
+        <a class="link link-primary" target="_blank" href="https://github.com/PrivateButts/lens-adapter-generator">View
+          source</a>
       </p>
     </aside>
   </footer>

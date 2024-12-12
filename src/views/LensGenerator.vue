@@ -75,7 +75,7 @@
         generated model will have clipping, but could potentially be usable.</span>
     </div>
     <GeneratorForm :scad-file="scadFile" :output-name="outputName" :scad-resources="resources" :scad-variables="options"
-      :model-options="modelOptions" />
+      :model-options="modelOptions" :forceDisabled="!(maleMount && femaleMount)" />
 
     <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border mt-4"
       v-if="maleMount && femaleMount">
@@ -105,18 +105,26 @@
         </table>
       </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 prose">
       <h1 class="text-xl">What is this?</h1>
       <p>This tool takes premade models of camera mounts and stitches them together via a dynamically generated hollow
         cone
         shape. The resultant models should work as a quick and dirty adapter, but are not as optimized as an adapter
         designed from scratch by a human. Keep in mind that none of these models are guaranteed to work or have been
         tested.
-        If you do print one out, and it does work, lemme know here and I'll mark it as tested whenever I release an
-        update.
-        If you have a mount that you'd like to contribute, submit a request here. Otherwise, if one of these adapters
+        If you do print one out, and it does work,
+        <a href="https://github.com/PrivateButts/lens-adapter-generator/issues/new?assignees=&labels=test+report&projects=&template=testing_report.md&title=%5Btest%5D+"
+          target="_blank" class="link">
+          lemme know here</a>
+        and I'll mark it as tested whenever I release an update.
+        If you have a mount that you'd like to contribute,
+        <a href="https://github.com/PrivateButts/lens-adapter-generator/issues/new?assignees=&labels=mount+request&projects=&template=mount_request.md&title=%5Bmount%5D+"
+          target="_blank" class="link">
+          submit
+          a request here</a>. Otherwise, if one of these adapters
         helps
-        you, be sure to support the creators who's mounts were used to make it.</p>
+        you, be sure to support the creators who's mounts were used to make it.
+      </p>
     </div>
   </form>
 </template>

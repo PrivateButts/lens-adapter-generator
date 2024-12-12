@@ -1,18 +1,14 @@
 <template>
   <div class="px-5 mt-2 mb-5">
-    <button @click="generateBtnHandler" :disabled="generating" class="btn btn-block btn-primary">
+    <button @click="generateBtnHandler" :disabled="generating || forceDisabled" class="btn btn-block btn-primary">
       Generate
     </button>
   </div>
   <div v-if="generating" class="aspect-w-16 aspect-h-9">
     <div class="w-full">Generating... This tab may freeze for a couple seconds.</div>
   </div>
-  <STLViewer
-    v-if="!generating && generatedSTL"
-    :stlFile="stlDataUrl"
-    :modelOptions="{ rotationx: -1.5708, ...props.modelOptions }"
-    class="aspect-w-16 aspect-h-9"
-  ></STLViewer>
+  <STLViewer v-if="!generating && generatedSTL" :stlFile="stlDataUrl"
+    :modelOptions="{ rotationx: -1.5708, ...props.modelOptions }" class="aspect-w-16 aspect-h-9"></STLViewer>
   <div class="px-5 mt-5">
     <button @click="downloadSTL" :disabled="!generatedSTL" class="btn btn-block btn-primary">
       Download STL
@@ -36,7 +32,8 @@ const props = defineProps({
   outputName: { type: String, required: true },
   scadResources: { type: Array as () => SCADResource[] },
   scadVariables: { type: Object },
-  modelOptions: { type: Object, default: () => ({}) }
+  modelOptions: { type: Object, default: () => ({}) },
+  forceDisabled: { type: Boolean, default: false }
 })
 
 const scadInstance = ref<OpenSCAD>()
@@ -124,7 +121,7 @@ const generate = async () => {
         cmd.push('-D', `${key}=${value}`)
       } if (typeof value === 'number') {
         cmd.push('-D', `${key}=${value}`)
-      }else {
+      } else {
         cmd.push('-D', `${key}="${value}"`)
       }
     }
