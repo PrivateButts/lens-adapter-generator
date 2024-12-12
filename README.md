@@ -1,10 +1,8 @@
-# Printer Serial Plate Generator
+# Lens Adapter Generator
 
-This static site generates serial plates for Voron printers using OpenSCAD-WASM entirely client side. It doesn't require any additional backend services to generate the STLs, and can be extended to support any OpenSCAD-based parametric file.
+This static site generates lens adapters using OpenSCAD-WASM entirely client side. It doesn't require any additional backend services to generate the STLs, and can be extended to support any OpenSCAD-based parametric file.
 
-Play with it online at [serial-generator.privatebutts.dev/voron](https://serial-generator.privatebutts.dev/voron)
-
-
+Play with it online at [lens-generator.privatebutts.dev](https://lens-generator.privatebutts.dev)
 
 # Development
 

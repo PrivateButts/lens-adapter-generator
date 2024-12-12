@@ -6,29 +6,18 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/voron'
+      redirect: '/lens'
     },
     {
-      path: '/voron',
-      name: 'voron',
+      path: '/lens',
+      name: 'lens',
       meta: {
-        title: 'Voron Serial Plate Generator',
-        nav: 'Voron',
+        title: 'Lens Adapter Generator',
+        nav: 'Lens Mount',
         icon: defineAsyncComponent(() => import('@/assets/voron.svg')),
         theme: 'voron'
       },
-      component: () => import('@/views/VoronGenerator.vue')
-    },
-    {
-      path: '/jm',
-      name: 'journeymaker',
-      meta: {
-        title: 'JourneyMaker Serial Plate Generator',
-        // nav: 'JourneyMaker',
-        icon: defineAsyncComponent(() => import('@/assets/journeymaker.svg')),
-        theme: 'journeymaker'
-      },
-      component: () => import('@/views/JourneyMakerGenerator.vue')
+      component: () => import('@/views/LensGenerator.vue')
     }
   ]
 })
