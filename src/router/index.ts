@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +11,8 @@ const router = createRouter({
       path: '/voron',
       name: 'voron',
       meta: {
-        title: 'Voron Serial Plate Generator'
+        title: 'Voron Serial Plate Generator',
+        theme: 'voron'
       },
       component: () => import('../views/VoronGenerator.vue')
     },
@@ -20,11 +20,21 @@ const router = createRouter({
       path: '/jm',
       name: 'journeymaker',
       meta: {
-        title: 'JourneyMaker Serial Plate Generator'
+        title: 'JourneyMaker Serial Plate Generator',
+        theme: 'journeymaker'
       },
       component: () => import('../views/JourneyMakerGenerator.vue')
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.theme) {
+    document.documentElement.setAttribute('data-theme', to.meta.theme as string)
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark')
+  }
+  next()
 })
 
 router.afterEach((to, from, failure) => {

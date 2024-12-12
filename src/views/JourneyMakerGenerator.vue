@@ -1,4 +1,4 @@
-<template data-theme="JourneyMaker">
+<template>
   <form class="max-w-50 max-w-xs mx-auto">
     <legend>JourneyMaker Plate Generator</legend>
     <label class="form-control w-full max-w">
